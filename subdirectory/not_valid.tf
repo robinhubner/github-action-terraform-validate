@@ -7,7 +7,7 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
 
   # Intentional error: the key "bad_attribute" does not exist for the aws_instance resource
-  # bad_attribute = "invalid_value" xxxxx
+  # bad_attribute = "invalid_value" xxxxxxxxx
 
   tags = {
     Name = "ExampleInstance"

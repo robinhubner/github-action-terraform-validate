@@ -1,1 +1,1 @@
-# github-action-terraform-validate test
+# github-action-terraform-validate

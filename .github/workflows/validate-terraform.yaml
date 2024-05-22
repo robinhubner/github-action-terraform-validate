@@ -37,13 +37,14 @@ jobs:
     
     - name: Terraform Init and Validate
       run: |
-        dirs=$(find . -type f -name "*.tf" -exec dirname {} \; | sort -u)
+        dirs=$(git diff --name-status HEAD~1 HEAD | grep "^M\|^A" | grep ".tf" | awk '{print $2}' | xargs -I {} dirname {} | sort -u)
         echo "::set-output name=dirs::${dirs}"
         for dir in ${dirs}; do
           cd $dir
           terraform init -backend=false
           terraform validate -no-color
         done
+
 
 
 
